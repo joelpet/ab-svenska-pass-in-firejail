@@ -31,11 +31,9 @@ $(DIR_MOZILLA)/com.gemalto.sconnect.json: com.gemalto.sconnect-ff.json | $(DIR_M
 	chmod -w $@
 
 $(DIR_SCONNECT)/$(HOST_FILE)-nonfree: $(HOST_FILE) | $(DIR_SCONNECT)
-	chmod +w $@
-	cp $< $@
+	cp --force $< $@
 	chmod 500 $@
 
-	chmod +w $@
-	cp $< $@
 $(DIR_SCONNECT)/$(HOST_FILE): $(FIREJAIL_HOST_FILE) | $(DIR_SCONNECT)
+	cp --force $< $@
 	chmod 500 $@
