@@ -9,11 +9,15 @@ if [[ -z "${net_iface}" ]]; then
   exit 1
 fi
 
-# TODO: Use --no3d, --nodvd, --nosound, --notv, --nou2f and --novideo for additional restrictions.
-
 firejail \
   --quiet \
   --net="${net_iface}" \
+  --no3d \
+  --nodvd \
+  --nosound \
+  --notv \
+  --nou2f \
+  --novideo \
   --private \
   --private-dev \
   --private-home=.sconnect \
