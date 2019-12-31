@@ -4,6 +4,11 @@
 DIR_SCONNECT=$(HOME)/.sconnect
 DIR_MOZILLA=$(HOME)/.mozilla/native-messaging-hosts
 HOST_FILE=sconnect_host_linux
+FIREJAIL_HOST_FILE=firejail_$(HOST_FILE).sh
+
+.PHONY: test
+test: $(FIREJAIL_HOST_FILE)
+	shellcheck --enable=all $<
 
 .PHONY: install
 install: \
@@ -29,7 +34,7 @@ $(DIR_SCONNECT)/$(HOST_FILE)-nonfree: $(HOST_FILE) | $(DIR_SCONNECT)
 	cp $< $@
 	chmod 500 $@
 
-$(DIR_SCONNECT)/$(HOST_FILE): firejail_$(HOST_FILE).sh | $(DIR_SCONNECT)
 	chmod +w $@
 	cp $< $@
+$(DIR_SCONNECT)/$(HOST_FILE): $(FIREJAIL_HOST_FILE) | $(DIR_SCONNECT)
 	chmod 500 $@
