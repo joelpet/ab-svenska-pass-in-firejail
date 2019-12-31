@@ -28,6 +28,7 @@ $(DIR_MOZILLA)/com.gemalto.sconnect.json: com.gemalto.sconnect-ff.json | $(DIR_M
 	chmod +w $@
 	cp $< $@
 	sed -i 's/<<<user>>>/'$(USER)'/g' $@
+	chmod -w $@
 
 $(DIR_SCONNECT)/$(HOST_FILE)-nonfree: $(HOST_FILE) | $(DIR_SCONNECT)
 	chmod +w $@
