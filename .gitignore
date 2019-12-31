@@ -1,0 +1,6 @@
+# sconnect-host tarball contents
+com.gemalto.sconnect-ff.json
+com.gemalto.sconnect.json
+install_sconnect_host.sh
+sconnect_host_linux
+uninstall_sconnect_host.sh
