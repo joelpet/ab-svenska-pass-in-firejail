@@ -12,6 +12,7 @@ fi
 firejail \
   --quiet \
   --net="${net_iface}" \
+  --nodbus \
   --no3d \
   --nodvd \
   --nosound \
