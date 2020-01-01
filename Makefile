@@ -15,7 +15,7 @@ shellcheck: $(FIREJAIL_HOST_FILE)
 
 .PHONY: audit
 audit: build/audit_report
-	grep $< -e '^BAD' -e '^UGLY' | wc --lines | grep --silent '^0'
+	grep $< -e 'BAD' -e 'UGLY' | wc --lines | grep '^1$$'
 
 build/audit_report: $(FIREJAIL_HOST_FILE) | build
 	./$< run-audit | tee $@
