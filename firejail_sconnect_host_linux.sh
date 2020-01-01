@@ -13,7 +13,7 @@ host_file_path="$HOME/.sconnect/sconnect_host_linux-nonfree"
 
 if [[ "$1" == "run-audit" ]]; then
     audit="--audit"
-    host_file_path=
+    host_file_path=/bin/false
 fi
 
 firejail \
