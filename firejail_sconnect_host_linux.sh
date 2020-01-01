@@ -22,4 +22,5 @@ firejail \
   --private \
   --private-dev \
   --private-home=.sconnect \
+  --x11=none \
   ~/.sconnect/sconnect_host_linux-nonfree
