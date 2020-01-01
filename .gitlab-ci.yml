@@ -27,3 +27,6 @@ test:
   stage: test
   script:
     - make test
+  artifacts:
+    paths:
+      - build/
