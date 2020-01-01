@@ -1,3 +1,5 @@
+build/
+
 # sconnect-host tarball contents
 com.gemalto.sconnect-ff.json
 com.gemalto.sconnect.json

@@ -9,6 +9,13 @@ if [[ -z "${net_iface}" ]]; then
   exit 1
 fi
 
+host_file_path="${HOME}/.sconnect/sconnect_host_linux-nonfree"
+
+if [[ "$1" == "run-audit" ]]; then
+    audit="--audit"
+    host_file_path=/bin/false
+fi
+
 firejail \
   --quiet \
   --net="${net_iface}" \
@@ -23,4 +30,5 @@ firejail \
   --private-dev \
   --private-home=.sconnect \
   --x11=none \
-  ~/.sconnect/sconnect_host_linux-nonfree
+  "${audit}" \
+  "${host_file_path}"

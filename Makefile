@@ -7,8 +7,21 @@ HOST_FILE=sconnect_host_linux
 FIREJAIL_HOST_FILE=firejail_$(HOST_FILE).sh
 
 .PHONY: test
-test: $(FIREJAIL_HOST_FILE)
+test: | audit shellcheck
+
+.PHONY: shellcheck
+shellcheck: $(FIREJAIL_HOST_FILE)
 	shellcheck --enable=all $<
+
+.PHONY: audit
+audit: build/audit_report
+	grep $< -e 'BAD' -e 'UGLY' | wc --lines | grep '^1$$'
+
+build/audit_report: $(FIREJAIL_HOST_FILE) | build
+	./$< run-audit | tee $@
+
+build:
+	mkdir -p $@
 
 .PHONY: install
 install: \
