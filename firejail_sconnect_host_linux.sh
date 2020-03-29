@@ -9,26 +9,27 @@ if [[ -z "${net_iface}" ]]; then
   exit 1
 fi
 
-host_file_path="${HOME}/.sconnect/sconnect_host_linux-nonfree"
+declare -a args
 
-if [[ "$1" == "run-audit" ]]; then
-    audit="--audit"
+args+=('--quiet')
+args+=("--net=${net_iface}")
+args+=('--nodbus')
+args+=('--no3d')
+args+=('--nodvd')
+args+=('--nosound')
+args+=('--notv')
+args+=('--nou2f')
+args+=('--novideo')
+args+=('--private')
+args+=('--private-dev')
+args+=('--private-home=.sconnect')
+args+=('--x11=none')
+
+if [[ "${1:-}" == "run-audit" ]]; then
+    args+=('--audit')
     host_file_path=/bin/false
+else
+    host_file_path="${HOME}/.sconnect/sconnect_host_linux-nonfree"
 fi
 
-firejail \
-  --quiet \
-  --net="${net_iface}" \
-  --nodbus \
-  --no3d \
-  --nodvd \
-  --nosound \
-  --notv \
-  --nou2f \
-  --novideo \
-  --private \
-  --private-dev \
-  --private-home=.sconnect \
-  --x11=none \
-  "${audit}" \
-  "${host_file_path}"
+firejail "${args[@]}" "${host_file_path}"
