@@ -32,4 +32,7 @@ else
     host_file_path="${HOME}/.sconnect/sconnect_host_linux-nonfree"
 fi
 
-firejail "${args[@]}" "${host_file_path}"
+log_file_path="${HOME}/.sconnect/$(basename "$0").log"
+err_file_path="${HOME}/.sconnect/$(basename "$0").err"
+
+{ firejail "${args[@]}" "${host_file_path}" | tee "${log_file_path}"; } 2>"${err_file_path}"
