@@ -35,4 +35,5 @@ fi
 log_file_path="${HOME}/.sconnect/$(basename "$0").log"
 err_file_path="${HOME}/.sconnect/$(basename "$0").err"
 
-{ firejail "${args[@]}" "${host_file_path}" | tee "${log_file_path}"; } 2>"${err_file_path}"
+{ firejail "${args[@]}" "${host_file_path}" | tee "${log_file_path}"; } 2>"${err_file_path}" \
+    || notify-send "$0" "The firejail command failed. See logs for more details."
