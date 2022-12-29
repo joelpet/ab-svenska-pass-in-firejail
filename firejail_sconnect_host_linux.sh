@@ -26,8 +26,8 @@ args+=('--private-home=.sconnect')
 args+=('--x11=none')
 
 if [[ "${1:-}" == "run-audit" ]]; then
-    args+=('--audit')
-    host_file_path=/bin/false
+    args+=('--debug')
+    host_file_path=/bin/true
 else
     host_file_path="${HOME}/.sconnect/sconnect_host_linux-nonfree"
 fi
