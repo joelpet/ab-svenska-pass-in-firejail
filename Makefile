@@ -37,7 +37,7 @@ $(DIR_SCONNECT) $(DIR_MOZILLA):
 	mkdir -p $@
 
 $(DIR_MOZILLA)/com.gemalto.sconnect.json: com.gemalto.sconnect-ff.json | $(DIR_MOZILLA)
-	chmod +w $@
+	-chmod +w $@
 	cp $< $@
 	sed -i 's/<<<user>>>/'$(USER)'/g' $@
 	chmod -w $@
