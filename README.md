@@ -14,7 +14,7 @@ As a result, AB Svenska Pass gets [arbitrary code execution](https://en.wikipedi
 
 In Sweden today, all available eIDs subject the user to nonfree software.
 For example, the most widely used, [(Mobilt) BankID](https://www.bankid.com/), is only available on nonfree operating systems such as Microsoft Windows, Apple macOS, Apple iOS, and Google Android.
-At least, AB Svenska Pass runs on the free operating system GNU/Linux—Ubuntu is even officially supported.
+At least, AB Svenska Pass runs on the free operating system GNU/Linux—Ubuntu and is even officially supported.
 With the nonfree parts sandboxed, AB Svenska Pass may be be considered the lesser of two evils where the alternative is some other eID that is not even available for any free operating system.
 
 ## Warning
